@@ -1,0 +1,225 @@
+/* GLOBAL */
+
+body {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background-color: #FFF;
+    font-family: Arial, sans-serif;
+}
+
+.conteneur {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background-color: #FFF;
+    font-family: Arial, sans-serif;
+}
+
+/* INIT */
+
+.ecranInit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.ecrantInitConteneur{
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.utilisateurs{
+    color: orange;
+}
+
+.buttonCommencer{
+    width: 150px;
+    height: 35px;
+    border: 0;
+    cursor: pointer;
+    transition: .25s;
+    font-size: 15px;
+}
+
+.buttonCommencer:hover{
+    background-color: lime;
+    width: calc(150px * 1.1);
+    height: calc(35px * 1.1);
+    font-size: calc(15px * 1.1);
+}
+
+/* GAME PLATEAU */
+
+.divVide{
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    top: 50px;
+}
+
+.tourJoueur{
+    position: fixed;
+    width: 100%;
+    height: 100px;
+    top: calc(100vh - 150px);
+    text-align: center;
+}
+
+.infoBarre{
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    line-height: 30px;
+    border: solid black 1px;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.pasVotreTour{
+    background-color: crimson;
+    color: white;
+}
+
+.votreTour{
+    background-color: lime !important;
+    color: black !important;
+}
+
+.infoBarre span{
+    color: crimson;
+}
+
+.gameContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 150px;
+    height: calc(100vh - 300px);
+    width: 100%;
+}
+
+.couleurDiv{
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 15;
+}
+
+.buttonColor{
+    width: 150px;
+    height: 35px;
+    margin: 20px;
+    border: 0;
+    cursor: pointer;
+    transition: .25s;
+    font-size: 15px;
+}
+
+.buttonColor:hover{
+    box-shadow: 4px 4px 1px magenta, 4px -4px 1px magenta, -4px 4px 1px magenta, -4px -4px 1px magenta;
+    width: calc(150px * 1.1);
+    height: calc(35px * 1.1);
+    font-size: calc(15px * 1.1);
+}
+
+.buttonColorRouge{ background-color: #e12d4f;}
+.buttonColorBleu{ background-color: #5656ff;}
+.buttonColorVert{ background-color: lime;}
+.buttonColorJaune{ background-color: yellow;}
+
+.mainJ2{
+    position: fixed;
+    text-align: center;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    /*padding-right: 115px;*/
+    transition: 0.5s;
+    transform: rotate(180deg);
+}
+
+.main{
+    position: fixed;
+    text-align: center;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    /*padding-left: 115px;*/
+    transition: 0.5s;
+}
+
+.main:hover{
+    height: 300px;
+}
+
+
+/* GAME CARD */
+
+.cardPioche{
+    position: relative;
+    height: 400px;
+    width: 280px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.cardPioche:hover{
+    box-shadow: 4px 4px 1px orange, 4px -4px 1px orange, -4px 4px 1px orange, -4px -4px 1px orange;
+}
+
+.card{
+    z-index: 1;
+    position: relative;
+    height: 400px;
+    width: 280px;
+    margin-left: -230px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.card:hover{
+    margin-right: 230px;
+    box-shadow: 4px 4px 1px magenta, 4px -4px 1px magenta, -4px 4px 1px magenta, -4px -4px 1px magenta;
+}
+
+.card:last-child{
+    margin-right: 0;
+}
+
+.card:first-child{
+    margin-left: 0 !important;
+}
+
+.cardAdversaire{
+    z-index: 1;
+    position: relative;
+    height: 400px;
+    width: 280px;
+    margin-right: -230px;
+    cursor: pointer;
+}
+
+.cardAdversaire:last-child{
+    margin-right: 0 !important;
+}
+
+.cardIndicator{
+    position: relative;
+    height: 400px;
+    width: 280px;
+    margin: 10px;
+    transition: 0.2s;
+}
