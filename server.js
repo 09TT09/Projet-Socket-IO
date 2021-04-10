@@ -148,7 +148,7 @@ io.on('connection', function(socket) {
   })
 
   // DECONNEXION UTILISATEUR
-  socket.on('disconnect', function () {
+  socket.on('disconnect', function() {
     idUsers.splice(idUsers.indexOf(socketId), 1)
     if (idUsers[0]) {
       io.to(idUsers[0]).emit('clientHoteInitialisation', {serverSocketId: idUsers[0]})
@@ -156,8 +156,8 @@ io.on('connection', function(socket) {
     }
 
     if (idUsers.length === 0) {
-      const trenteSec = 30000
-      varTimeout = setTimeout(function(){ console.log('30 secondes : Reset'); globalReset() }, trenteSec);
+      const dixSec = 10000
+      varTimeout = setTimeout(function(){ console.log('10 secondes : Reset'); globalReset() }, dixSec);
     }
   })
 
@@ -170,6 +170,7 @@ io.on('connection', function(socket) {
     oldTurn = undefined
     endFirstPioche = 0
     varTimeout = undefined
+    firstPiocheActive = true;
 
     // VAR LOGIQUE CARTES
     notTheSame = [];
@@ -205,6 +206,7 @@ http.listen(3000, function(){
 
 
 
+
 // LOGIQUE CARTES
 
 let notTheSame = [];
@@ -224,9 +226,24 @@ function randomIdCard() {
     if (cardInDeck > 0)  {
         if (notTheSame.length < 108){
             if (notTheSame.indexOf(cardValue) === -1) {
-                notTheSame.push(cardValue);
-                cardInDeck--;
-                funColorCard(cardValue);
+
+                if (releavedCard === true){
+                    notTheSame.push(cardValue);
+                    cardInDeck--;
+                    funColorCard(cardValue);
+                }
+
+                if (releavedCard === false){
+                    if (cardValue < 100){
+                        notTheSame.push(cardValue);
+                        cardInDeck--;
+                        funColorCard(cardValue);
+                    }
+                    else {
+                        randomIdCard();
+                    }
+                }
+
             }
             else { randomIdCard(); }
         }

@@ -253,13 +253,6 @@ socket.on('clientDisconnectAll', function() {
     socket.emit('serverDisconnectAll');
 })
 
-
-// RESET ALL VARIABLES
-socket.on('globalReset', function() {
-    socket = io();
-    initHoteIsSet = false;
-    initIsSet = false;
-    socketId = undefined;
-    adversaireIdCard = 0;
-    tourJoueur = false;
-})
+function globalResetClientFunctionTest() {
+    socket.emit('globalResetClientFunctionTest');
+}
